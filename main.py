@@ -7,6 +7,9 @@ class Main:
         self.bot = bot
         self.app = app
 
+    def main(self):
+        self.bot.polling()
+
 
 if __name__ == '__main__':
-    bot.polling()
+    Main().main()

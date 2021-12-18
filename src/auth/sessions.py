@@ -32,6 +32,12 @@ class SessionLoop:
     def get_session(self, username) -> Session:
         return self.sessions[username]
 
+    def delete(self, username):
+        self.sessions.pop(username)
+
     def update(self):
-        for session in self.sessions.values():
+        for username, session in self.sessions.items():
+            if not session.is_alive:
+                self.delete(username)
+
             session.update()
